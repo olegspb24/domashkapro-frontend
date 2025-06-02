@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -10,6 +8,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -21,3 +20,28 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# cache
+.cache/
+.parcel-cache/
+.next/
+out/
+.nuxt/
+.vite/
+.vitepress/
+
+# VSCode, WebStorm и др.
+.vscode/
+.idea/
+
+# logs and reports
+*.log
+*.tgz
+*.tsbuildinfo
+
+# lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
