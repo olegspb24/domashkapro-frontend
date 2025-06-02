@@ -2,46 +2,89 @@
 /node_modules
 /.pnp
 .pnp.js
+jspm_packages/
+bower_components
 
 # testing
 /coverage
+*.lcov
+.nyc_output
 
 # production
 /build
 /dist
+/build/Release
+.nuxt
+.nuxt/
+.next
+out
+.vuepress/dist
+.vuepress/v2.x
+.temp
+.cache/
+.parcel-cache
+.vite/
+.vitepress/
+.docusaurus
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+.vscode-test
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Gatsby files
+.cache/
+# public
 
+# logs and diagnostic reports
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# cache
-.cache/
-.parcel-cache/
-.next/
-out/
-.nuxt/
-.vite/
-.vitepress/
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# VSCode, WebStorm и др.
-.vscode/
-.idea/
-
-# logs and reports
-*.log
-*.tgz
+# TypeScript cache
 *.tsbuildinfo
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
 
 # lockfiles
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+
+# Yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.npm
+.eslintcache
+.stylelintcache
+.node_repl_history
+.tgz
+.yarn-integrity
+.idea/
+.vscode/
