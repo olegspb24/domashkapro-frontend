@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
-import Logos from './components/Logos/Logos';
+import InputTask from './components/InputTask';
 import About from './components/About/About';
 import Pricing from './components/Pricing/Pricing';
 import Blogs from './components/Blogs/Blogs';
@@ -11,7 +11,7 @@ function App() {
     <div className="h-full bg-slate-100 dark:bg-slate-900">
       <Navbar />
       <Hero />
-      <Logos />
+      <InputTask />
       <About />
       <Pricing />
       <Blogs />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const tiers = [
   {
@@ -31,7 +31,7 @@ const tiers = [
     ],
     cta: 'Оформить подписку',
     subtitle: 'в месяц или 2990₽/год',
-    highlight: true, // выделить цветом
+    highlight: true,
   },
   {
     name: 'Разовое решение',
@@ -58,11 +58,11 @@ const Pricing = () => {
           Для всех и каждого
         </h3>
 
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 xl:text-5xl">
           Выберите свой тариф
         </h2>
 
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+        <p className="text-lg text-neutral-600">
           Попробуйте бесплатно — убедитесь, как удобно учиться с ДомашкаPRO AI
         </p>
       </div>
@@ -71,29 +71,41 @@ const Pricing = () => {
         {tiers.map((tier) => (
           <div
             key={tier.id}
-            className={`flex flex-col justify-between space-y-10 rounded-xl bg-white p-8 text-center ring-2 ${tier.highlight ? "ring-blue-500 shadow-xl scale-105" : "ring-neutral-200 dark:ring-neutral-800"} xl:p-10 transition`}
+            className={`flex flex-col justify-between space-y-10 rounded-3xl bg-white p-10 text-center ring-2 transition-all duration-300 
+              ${tier.highlight 
+                ? "ring-blue-500 shadow-2xl" 
+                : "ring-neutral-200"}
+              hover:scale-105 hover:shadow-2xl`}
           >
             <div>
+              {/* Можно добавить лейбл “Рекомендуем” */}
+              {tier.highlight && (
+                <div className="mb-2">
+                  <span className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-600 text-xs font-semibold">
+                    Рекомендуем
+                  </span>
+                </div>
+              )}
               <h3
                 id={tier.id}
-                className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
+                className="text-lg font-semibold leading-8 text-neutral-900"
               >
                 {tier.name}
               </h3>
 
               <div className="mt-2 flex flex-col space-y-2">
                 <p className="flex items-baseline justify-center gap-x-1">
-                  <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                  <span className={`font-bold tracking-tight text-neutral-900 text-5xl ${tier.highlight ? 'text-6xl' : ''}`}>
                     {tier.price.monthly}
                   </span>
                   {tier.name !== "Разовое решение" && (
-                    <span className="text-neutral-600 dark:text-neutral-500">
+                    <span className="text-neutral-600">
                       /мес
                     </span>
                   )}
                 </p>
                 {tier.price.annually && (
-                  <p className="text-base text-neutral-600 dark:text-neutral-400">
+                  <p className="text-base text-neutral-600">
                     или {tier.price.annually}/год
                   </p>
                 )}
@@ -104,12 +116,12 @@ const Pricing = () => {
 
               <ul
                 role="list"
-                className="mt-6 space-y-3 text-base leading-6 text-neutral-700 dark:text-neutral-300 text-left self-stretch list-disc pl-5"
+                className="mt-6 space-y-3 text-base leading-6 text-neutral-700 text-left self-stretch list-none pl-0"
               >
                 {tier.features.map((feature, idx) => (
                   <li key={idx} className="flex gap-x-2 items-start">
                     <CheckIcon
-                      className="h-5 w-5 flex-none text-blue-500"
+                      className="h-5 w-5 flex-none text-blue-500 mt-1"
                       aria-hidden="true"
                     />
                     <span>{feature}</span>
@@ -121,11 +133,11 @@ const Pricing = () => {
             <a
               href={tier.href}
               aria-describedby={tier.id}
-              className={`rounded-md px-10 py-3 text-sm font-semibold shadow-sm transition mt-2 ${
-                tier.highlight
+              className={`rounded-md px-10 py-3 text-sm font-semibold shadow-sm transition mt-2
+                ${tier.highlight
                   ? "bg-blue-600 text-white hover:bg-blue-700"
                   : "bg-neutral-200 text-neutral-900 hover:bg-neutral-300"
-              }`}
+                }`}
             >
               {tier.cta}
             </a>

@@ -1,5 +1,13 @@
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaChalkboardTeacher, FaGraduationCap, FaRegFileAlt, FaStopwatch, FaBookOpen, FaLock } from "react-icons/fa";
+import {
+  FaChalkboardTeacher,
+  FaGraduationCap,
+  FaRegFileAlt,
+  FaStopwatch,
+  FaBookOpen,
+  FaLock,
+} from "react-icons/fa";
 
 const benefits = [
   {
@@ -35,30 +43,58 @@ const benefits = [
 ];
 
 const About = () => {
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    // Функция проверки ширины окна
+    const handleResize = () => setIsDesktop(window.innerWidth >= 640);
+
+    handleResize(); // Запуск при монтировании
+    window.addEventListener("resize", handleResize);
+
+    // Очистка слушателя при размонтировании
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+    <div className="mx-auto mt-24 max-w-7xl px-2 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8 bg-[#F8FAFF] py-10 rounded-3xl">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-10">
         Почему выбирают ДомашкаPRO AI?
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {benefits.map((b, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.85,     // мягче и плавнее
-              delay: idx * 0.17,  // плавная очередность
-              ease: "easeOut",    // плавное завершение
-            }}
-            className="bg-white rounded-2xl shadow-lg flex flex-col items-center p-8 text-center transition hover:scale-105"
-          >
-            <div className="mb-4">{b.icon}</div>
-            <div className="font-semibold text-xl mb-2">{b.title}</div>
-            <div className="text-slate-700">{b.text}</div>
-          </motion.div>
-        ))}
+        {benefits.map((b, idx) =>
+          isDesktop ? (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.8,
+                delay: idx * 0.12,
+                ease: "easeOut",
+              }}
+              className="bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col items-center p-10 text-center transition hover:scale-102 group"
+            >
+              <div className="mb-4 transition-transform group-hover:scale-105 group-hover:-translate-y-0.5">
+                {b.icon}
+              </div>
+              <div className="font-semibold text-xl mb-2">{b.title}</div>
+              <div className="text-slate-700">{b.text}</div>
+            </motion.div>
+          ) : (
+            <div
+              key={idx}
+              className="bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col items-center p-10 text-center transition hover:scale-102 group"
+            >
+              <div className="mb-4 transition-transform group-hover:scale-105 group-hover:-translate-y-0.5">
+                {b.icon}
+              </div>
+              <div className="font-semibold text-xl mb-2">{b.title}</div>
+              <div className="text-slate-700">{b.text}</div>
+            </div>
+          )
+        )}
       </div>
     </div>
   );
