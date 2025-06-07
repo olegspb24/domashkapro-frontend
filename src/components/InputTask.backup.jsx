@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { FaCamera } from "react-icons/fa";
+import CircleBg from "../CircleBg"; // Импорт компонента фона
 
 const sideImage = "/your-chosen-image.jpg"; // Имя файла в public/
 
@@ -24,8 +25,10 @@ const InputTask = () => {
   };
 
   return (
-    <section className="w-full bg-[#F8F5F0] py-16">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-8 px-4">
+    <section className="relative w-full bg-[#F8F5F0] py-16 overflow-hidden">
+      <CircleBg />
+
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-8 px-4 relative z-10">
         {/* ФОРМА слева */}
         <div className="flex-1 bg-white/80 rounded-2xl shadow-xl px-6 py-8 border border-slate-200 flex flex-col justify-center max-w-[420px] min-w-[300px]">
           <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-2 text-center">

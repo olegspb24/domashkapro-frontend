@@ -10,11 +10,19 @@ function App() {
   return (
     <div className="h-full bg-slate-100 dark:bg-slate-900">
       <Navbar />
-      <Hero />
+      <section id="hero">
+        <Hero />
+      </section>
       <InputTask />
-      <About />
-      <Pricing />
-      <Blogs />
+      <section id="about">
+        <About />
+      </section>
+      <section id="pricing">
+        <Pricing />
+      </section>
+      <section id="blogs">
+        <Blogs />
+      </section>
       <Footer />
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaTelegram, FaVk, FaEnvelope, FaYoutube } from "react-icons/fa";
-import OwlMascot from "../OwlMascot"; // путь подправь!
+import OwlMascot from "../OwlMascot";
 
 const navigation = {
   about: [

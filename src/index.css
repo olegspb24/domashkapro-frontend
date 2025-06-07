@@ -7,4 +7,36 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+
+    @keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+}
+@keyframes float-delay {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(18px); }
+}
+@keyframes float-alt {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+@keyframes spin-slow {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+@keyframes wiggle {
+  0%,100% { transform: rotate(-2deg);}
+  50% { transform: rotate(6deg);}
+}
+.animate-float-slow { animation: float-slow 8s infinite ease-in-out; }
+.animate-float-fast { animation: float-fast 5s infinite ease-in-out; }
+.animate-float-delay { animation: float-delay 9s infinite ease-in-out; }
+.animate-float-alt { animation: float-alt 7s infinite ease-in-out; }
+.animate-spin-slow { animation: spin-slow 10s linear infinite; }
+.animate-wiggle { animation: wiggle 3.5s infinite; }
+
 }
