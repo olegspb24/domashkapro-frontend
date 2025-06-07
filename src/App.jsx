@@ -5,11 +5,15 @@ import About from './components/About/About';
 import Pricing from './components/Pricing/Pricing';
 import Blogs from './components/Blogs/Blogs';
 import Footer from './components/Footer/Footer';
+import BlogAnnouncement from './pages/BlogAnnouncement';
+import BlogManual from './pages/BlogManual';
+import BlogTips from './pages/BlogTips'; // новая страница
 
-function App() {
+import { Routes, Route } from "react-router-dom";
+
+function MainLanding() {
   return (
-    <div className="h-full bg-slate-100 dark:bg-slate-900">
-      <Navbar />
+    <>
       <section id="hero">
         <Hero />
       </section>
@@ -23,6 +27,20 @@ function App() {
       <section id="blogs">
         <Blogs />
       </section>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <div className="h-full bg-slate-100 dark:bg-slate-900">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<MainLanding />} />
+        <Route path="/blog/announcement" element={<BlogAnnouncement />} />
+        <Route path="/blog/manual" element={<BlogManual />} />
+        <Route path="/blog/tips" element={<BlogTips />} /> {/* новый роут */}
+      </Routes>
       <Footer />
     </div>
   );

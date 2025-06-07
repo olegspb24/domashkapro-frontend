@@ -10,7 +10,7 @@ const posts = [
     category: 'Анонс',
     title: 'Добро пожаловать в ДомашкаPRO!',
     description: 'Ваша персональная AI‑помощь в учёбе теперь доступна онлайн. Решайте задачи, получайте объяснения и советы для школьников и родителей — всё в одном сервисе.',
-    href: '/blog/announcement',
+    href: '/blog/announcement', // теперь тут реальный роут
     icon: <FaRegFileAlt size={52} className="text-blue-500 mx-auto mt-6" />,
     alt: 'Добро пожаловать',
     metadata: {
@@ -25,7 +25,7 @@ const posts = [
     category: 'Инструкция',
     title: 'Как быстро получить решение задачи',
     description: 'Просто опишите задачу или загрузите фото. Через минуту вы получите не только ответ, но и объяснение — как на уроке с учителем!',
-    href: '/blog/manual',
+    href: '#',
     icon: <FaDrawPolygon size={52} className="text-red-500 mx-auto mt-6" />,
     alt: 'Инструкция',
     metadata: {
@@ -40,7 +40,7 @@ const posts = [
     category: 'Полезно',
     title: '3 совета для родителей',
     description: 'Помогайте ребёнку учиться с интересом: обсуждайте задания, пробуйте решать вместе, доверяйте объяснениям AI как дополнительному ресурсу.',
-    href: '/blog/tips',
+    href: '#',
     icon: <FaChalkboardTeacher size={52} className="text-green-500 mx-auto mt-6" />,
     alt: 'Совет родителям',
     metadata: {
@@ -120,12 +120,18 @@ const Blogs = () => {
                         {post.description}
                       </p>
                       <div className="mt-6 flex items-center">
-                        <Link
-                          to={post.href}
-                          className="flex items-center gap-x-2 text-base text-blue-600 font-medium"
-                        >
-                          Читать подробнее
-                        </Link>
+                        {post.id === 1 ? (
+                          <Link
+                            to={post.href}
+                            className="flex items-center gap-x-2 text-base text-blue-600 font-medium"
+                          >
+                            Читать подробнее
+                          </Link>
+                        ) : (
+                          <span className="flex items-center gap-x-2 text-base text-blue-400 font-medium opacity-60 cursor-not-allowed">
+                            Скоро
+                          </span>
+                        )}
                       </div>
                     </dd>
                   </div>
@@ -161,12 +167,18 @@ const Blogs = () => {
                         {post.description}
                       </p>
                       <div className="mt-6 flex items-center">
-                        <Link
-                          to={post.href}
-                          className="flex items-center gap-x-2 text-base text-blue-600 font-medium"
-                        >
-                          Читать подробнее
-                        </Link>
+                        {post.id === 1 ? (
+                          <Link
+                            to={post.href}
+                            className="flex items-center gap-x-2 text-base text-blue-600 font-medium"
+                          >
+                            Читать подробнее
+                          </Link>
+                        ) : (
+                          <span className="flex items-center gap-x-2 text-base text-blue-400 font-medium opacity-60 cursor-not-allowed">
+                            Скоро
+                          </span>
+                        )}
                       </div>
                     </dd>
                   </div>
